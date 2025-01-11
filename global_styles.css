@@ -905,13 +905,10 @@ html {
         
     }
 
-
     #RPsbs-248 .bcw-button-solid:hover,
     #RPsbsr-248 .bcw-button-solid:hover {
         opacity: .9;
     }
-
-
 
     #RPsbs-248 .bcw-picture,
     #RPsbsr-248 .bcw-picture {
@@ -924,6 +921,7 @@ html {
         aspect-ratio: 2.78;
         /* prevents border from adding to height and width */
         box-sizing: border-box;
+        margin-bottom: 6%;
     }
 
     #RPsbs-248 .bcw-picture img,
