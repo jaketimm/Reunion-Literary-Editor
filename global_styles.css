@@ -921,7 +921,7 @@ html {
         position: relative;
         display: block;
         /* width divided by height */
-        aspect-ratio: 1.09;
+        aspect-ratio: 2.78;
         /* prevents border from adding to height and width */
         box-sizing: border-box;
     }
