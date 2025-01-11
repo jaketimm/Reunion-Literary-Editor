@@ -1,0 +1,987 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins-Regular.ttf') format('truetype'),
+        url('fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: normal;
+    /* Adjust based on the specific font weight */
+    font-style: normal;
+}
+
+
+:root {
+    /* Add these styles to your global stylesheet, which is used across all site pages. You only need to do this once. All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
+    --primary: #8bacab;
+    /* These are highlight colors for text, box edges, ect. */
+    /* Color Palette Tool: https://mycolor.space/?hex=%231A2397&sub=1 */
+    --primaryLight: #3279e4;
+    --headerColor: #ffffff;
+    --bodyTextColor: #ffffff;
+    /* global text color */
+    --bodyTextColorBlack: #000000;
+    --navigationBarColor: #000000;
+    --linkcolor: #262fac;
+    /* 13px - 16px */
+    --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+    /* 31px - 49px */
+    --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+    --bodyFontSize: 1rem;
+    /* 60px - 100px top and bottom */
+    --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+
+*,
+*:before,
+*:after {
+    /* prevents padding from affecting height and width */
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.bcw-topper {
+    font-size: var(--topperFontSize);
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: inherit;
+    letter-spacing: .1em;
+    font-weight: 700;
+    /* color: var(--headerColor); to have it match global color style*/
+    color: #000000;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.bcw-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--primary);
+    position: relative;
+}
+
+.bcw-text {
+    font-size: var(--bodyFontSize);
+    line-height: 1.5em;
+    text-align: inherit;
+    width: 100%;
+    max-width: 40.625rem;
+    margin: 0;
+    color: var(--bodyTextColor);
+}
+
+/* Change text color */
+.bcw-color {
+    color: var(--primary);
+}
+
+.home-page {
+    background-color: #1c1c1c;
+}
+
+/*-- -------------------------- -->
+<---     Standard Navigation    -->
+<---        Plus Dropdown       -->
+<--- -------------------------- -*/
+
+body,
+html {
+    /* reset margin and padding so there's no gap between the nav and the screen edges */
+    margin: 0;
+    padding: 0;
+}
+
+/* Mobile - 1023px */
+@media only screen and (max-width: 63.9375rem) {
+    body.bcw-open {
+        overflow: hidden;
+    }
+
+    #bcw-navigation {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        /* prevents padding and border from affecting height and width */
+        box-sizing: border-box;
+        background-color: var(--navigationBarColor);
+        position: fixed;
+        z-index: 100;
+    }
+
+    #bcw-navigation:after {
+        /* on hover green bar */
+        content: "";
+        width: 40%;
+        max-width: 9.125rem;
+        height: 100%;
+        /* background: var(--primary); color behind logo */
+        opacity: 1;
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0%;
+        z-index: -1;
+        transition:
+            width 0.2s,
+            max-width 0.3s,
+            background-color 0.3s;
+    }
+
+    #bcw-navigation:before {
+        /* grey blurrd overlay */
+        content: "";
+        width: 100%;
+        height: 0vh;
+        background: rgba(0, 0, 0, 0.6);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        position: absolute;
+        display: block;
+        top: 100%;
+        right: 0;
+        z-index: -11;
+        transition:
+            height 0.5s,
+            opacity 0.3s;
+    }
+
+    #bcw-navigation.bcw-active:after {
+        width: 100%;
+        max-width: 100%;
+        background-color: var(--navigationBarColor);
+    }
+
+    #bcw-navigation.bcw-active:before {
+        height: 150vh;
+        opacity: 1;
+    }
+
+    #bcw-navigation.bcw-active .bcw-ul-wrapper {
+        opacity: 1;
+        transform: scaleY(1);
+        transition-delay: 0.2s;
+    }
+
+    #bcw-navigation.bcw-active .bcw-li {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    #bcw-navigation .bcw-logo {
+        width: 40%;
+        max-width: 9.125rem;
+        height: 100%;
+        padding: 0.75rem 1rem;
+        /* prevents padding and border from affecting height and width */
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    #bcw-navigation .bcw-logo img {
+        width: 100%;
+        height: 100%;
+        /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+        object-fit: contain;
+    }
+
+    #bcw-navigation .bcw-toggle {
+        /* 44px - 48px */
+        width: clamp(2.75rem, 6vw, 3rem);
+        height: clamp(2.75rem, 6vw, 3rem);
+        margin: 0 0 0 auto;
+        border-radius: 0.25rem;
+        background-color: var(--navigationBarColor);
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #bcw-navigation .bcw-active .bcw-line1 {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(225deg);
+    }
+
+    #bcw-navigation .bcw-active .bcw-line2 {
+        top: 50%;
+        transform-origin: center;
+        transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
+    }
+
+    #bcw-navigation .bcw-active .bcw-line3 {
+        bottom: 100%;
+        opacity: 0;
+    }
+
+    #bcw-navigation .bcw-box {
+        /* 24px - 28px */
+        width: clamp(1.5rem, 2vw, 1.75rem);
+        /* 14px - 16px */
+        height: clamp(0.875rem, 1.5vw, 1rem);
+        position: relative;
+    }
+
+    #bcw-navigation .bcw-line {
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #fff;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #bcw-navigation .bcw-line1 {
+        top: 0;
+        transform-origin: center;
+        transition:
+            transform 0.5s,
+            top 0.3s,
+            left 0.3s;
+        animation-duration: 0.7s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+    }
+
+    #bcw-navigation .bcw-line2 {
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        transition:
+            top 0.3s,
+            left 0.3s,
+            transform 0.5s;
+        animation-duration: 0.7s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+    }
+
+    #bcw-navigation .bcw-line3 {
+        bottom: 0;
+        transition:
+            bottom 0.3s,
+            opacity 0.3s;
+    }
+
+    #bcw-navigation .bcw-ul-wrapper {
+        width: 100%;
+        opacity: 0;
+        background-color: #fff;
+        box-shadow: inset rgba(0, 0, 0, 0.2) 0px 8px 24px;
+        overflow: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: -1;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition:
+            transform 0.4s,
+            opacity 0.3s;
+    }
+
+    #bcw-navigation .bcw-ul {
+        margin: 0;
+        padding: 3rem 0 3rem 0;
+        width: 100%;
+        height: auto;
+        max-height: 65vh;
+        overflow: scroll;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+    }
+
+    #bcw-navigation .bcw-li {
+        text-align: center;
+        list-style: none;
+        margin-right: 0;
+        /* transition from these values */
+        transform: translateY(-4.375rem);
+        opacity: 0;
+        transition:
+            transform 0.6s,
+            opacity 0.9s;
+    }
+
+
+    #bcw-navigation .bcw-li:nth-of-type(1) {
+        transition-delay: 0.05s;
+    }
+
+    #bcw-navigation .bcw-li:nth-of-type(2) {
+        transition-delay: 0.1s;
+    }
+
+    #bcw-navigation .bcw-li:nth-of-type(3) {
+        transition-delay: 0.15s;
+    }
+
+    #bcw-navigation .bcw-li:nth-of-type(4) {
+        transition-delay: 0.2s;
+    }
+
+    #bcw-navigation .bcw-li:nth-of-type(5) {
+        transition-delay: 0.25s;
+    }
+
+    #bcw-navigation .bcw-li:nth-of-type(6) {
+        transition-delay: 0.3s;
+    }
+
+    #bcw-navigation .bcw-li:nth-of-type(7) {
+        transition-delay: 0.35s;
+    }
+
+    #bcw-navigation .bcw-li:nth-of-type(8) {
+        transition-delay: 0.4s;
+    }
+
+    #bcw-navigation .bcw-li:nth-of-type(9) {
+        transition-delay: 0.45s;
+    }
+
+    #bcw-navigation .bcw-li:nth-of-type(10) {
+        transition-delay: 0.5s;
+    }
+
+    #bcw-navigation .bcw-li:nth-of-type(11) {
+        transition-delay: 0.55s;
+    }
+
+    #bcw-navigation .bcw-li:nth-of-type(12) {
+        transition-delay: 0.6s;
+    }
+
+    #bcw-navigation .bcw-li:nth-of-type(13) {
+        transition-delay: 0.65s;
+    }
+
+    /* Mobile Link Text */
+    #bcw-navigation .bcw-li-link {
+        /* 16px - 24px */
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+        line-height: 1.2em;
+        text-decoration: none;
+        margin: 0;
+        color: var(--bodyTextColorBlack);
+        display: inline-block;
+        position: relative;
+    }
+
+    /* Mobile Link Text */
+    #bcw-navigation .bcw-li-link-dropdown {
+        /* 16px - 24px */
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+        line-height: 1.2em;
+        text-decoration: none;
+        margin: 0;
+        color: var(--bodyTextColor);
+        display: inline-block;
+        position: relative;
+    }
+
+    #bcw-navigation .bcw-li-link:before {
+        /* active state underline */
+        content: "";
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        opacity: 1;
+        position: absolute;
+        display: none;
+        bottom: -0.125rem;
+        left: 0;
+    }
+
+    #bcw-navigation .bcw-li-link.bcw-active:before {
+        display: block;
+    }
+
+    #bcw-navigation .bcw-button-solid {
+        display: none;
+    }
+}
+
+/*-- -------------------------- -->
+    <---     Navigation Dropdown    -->
+    <--- -------------------------- -*/
+
+/* Mobile - 1023px */
+@media only screen and (max-width: 63.9375rem) {
+    #bcw-navigation .bcw-li {
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    #bcw-navigation .bcw-dropdown {
+        position: relative;
+        color: var(--bodyTextColor);
+    }
+
+    #bcw-navigation .bcw-dropdown.bcw-active .bcw-drop-ul {
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+        margin: 0.75rem 0 0 0;
+        padding: 0.75rem 0;
+    }
+
+    #bcw-navigation .bcw-dropdown.bcw-active .bcw-drop-link {
+        opacity: 1;
+    }
+
+    #bcw-navigation .bcw-dropdown .bcw-li-link {
+        position: relative;
+        transition: opacity 0.3s;
+    }
+
+    #bcw-navigation .bcw-drop-icon {
+        width: 0.9375rem;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        right: -1.25rem;
+        transform: translateY(-50%);
+    }
+
+    #bcw-navigation .bcw-drop-ul {
+        width: 100%;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        background-color: var(--headerColor);
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        transition:
+            padding 0.3s,
+            margin 0.3s,
+            height 0.3s,
+            opacity 0.3s,
+            visibility 0.3s;
+    }
+
+    #bcw-navigation .bcw-drop-li {
+        list-style: none;
+    }
+
+    /* Mobile menu dropdown link text */
+    #bcw-navigation .bcw-li-link.bcw-drop-link {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 2vw, 1.25rem);
+        color: var(--bodyTextColor)
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #bcw-navigation .bcw-dropdown {
+        position: relative;
+    }
+
+    #bcw-navigation .bcw-dropdown:hover {
+        cursor: pointer;
+    }
+
+    #bcw-navigation .bcw-dropdown:hover .bcw-drop-ul {
+        transform: scaleY(1);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #bcw-navigation .bcw-dropdown:hover .bcw-drop-li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    #bcw-navigation .bcw-drop-icon {
+        width: 0.9375rem;
+        height: auto;
+        display: inline-block;
+    }
+
+    #bcw-navigation .bcw-drop-ul {
+        min-width: 12.5rem;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        border-bottom: 5px solid var(--primary);
+        /* if you have 8 or more links in your dropdown nav, uncomment the columns property to make the list into 2 even columns. Change it to 3 or 4 if you need extra columns. Then remove the transition delays on the bcw-drop-li so they don't have weird scattered animations */
+        position: absolute;
+        top: 100%;
+        z-index: -100;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition:
+            transform 0.3s,
+            visibility 0.3s,
+            opacity 0.3s;
+    }
+
+    #bcw-navigation .bcw-drop-li {
+        list-style: none;
+        font-size: 1rem;
+        text-decoration: none;
+        opacity: 0;
+        width: 100%;
+        height: auto;
+        color: var(--bodyTextColor);
+        display: block;
+        transform: translateY(-0.625rem);
+        transition:
+            opacity 0.6s,
+            transform 0.6s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(1) {
+        transition-delay: 0.05s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(2) {
+        transition-delay: 0.1s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(3) {
+        transition-delay: 0.15s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(4) {
+        transition-delay: 0.2s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(5) {
+        transition-delay: 0.25s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(6) {
+        transition-delay: 0.3s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(7) {
+        transition-delay: 0.35s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(8) {
+        transition-delay: 0.4s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(9) {
+        transition-delay: 0.45s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(10) {
+        transition-delay: 0.5s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(11) {
+        transition-delay: 0.55s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(12) {
+        transition-delay: 0.6s;
+    }
+
+    #bcw-navigation .bcw-drop-li:nth-of-type(13) {
+        transition-delay: 0.65s;
+    }
+
+    #bcw-navigation .bcw-li-link.bcw-drop-link {
+        white-space: nowrap;
+        width: 100%;
+        font-size: 1rem;
+        line-height: 1.5em;
+        text-decoration: none;
+        padding: 0.75rem;
+        /* prevents padding and border from affecting height and width */
+        box-sizing: border-box;
+        color: var(--bodyTextColor);
+        display: block;
+        transition:
+            color 0.3s,
+            background-color 0.3s;
+    }
+
+    #bcw-navigation .bcw-li-link.bcw-drop-link:hover {
+        background-color: #f7f7f7;
+    }
+
+    #bcw-navigation .bcw-li-link.bcw-drop-link:before {
+        display: none;
+    }
+}
+
+/*-- -------------------------- -->
+    <---     Desktop Navigation     -->
+    <--- -------------------------- -*/
+
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #bcw-navigation {
+        width: 100%;
+        /* 23px - 420px */
+        padding: 0rem 1rem 0rem clamp(14.6875rem, 23vw, 26.25rem);
+        /* prevents padding and border from affecting height and width */
+        box-sizing: border-box;
+        background-color: var(--navigationBarColor);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        z-index: 10000;
+    }
+
+    #bcw-navigation .bcw-toggle {
+        display: none;
+    }
+
+    #bcw-navigation .bcw-logo {
+        width: 18.4%;
+        max-width: 20rem;
+        height: 100%;
+        /* 32px - 64px */
+        padding: 1rem clamp(2rem, 4vw, 4rem);
+        /* prevents padding and border from affecting height and width */
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+    }
+
+    #bcw-navigation .bcw-logo img {
+        width: 100%;
+        height: 100%;
+        /* ensures the image never overflows the container. It stays contained within it's width and height and expands to fill it then stops once it reaches an edge */
+        object-fit: contain;
+    }
+
+    #bcw-navigation .bcw-ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        /* 20px - 36px */
+        gap: clamp(1.25rem, 2.6vw, 2.25rem);
+    }
+
+    #bcw-navigation .bcw-li {
+        list-style: none;
+        padding: 2rem 0;
+        /* prevent flexbox from squishing it */
+        flex: none;
+    }
+
+    #bcw-navigation .bcw-li:last-of-type {
+        /* pushes the button to the far roght */
+        margin-left: auto;
+    }
+
+    #bcw-navigation .bcw-li-link {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1vw, 1rem);
+        line-height: 1.5em;
+        text-decoration: none;
+        margin: 0;
+        color: var(--bodyTextColor);
+        display: block;
+        position: relative;
+    }
+
+    #bcw-navigation .bcw-li-link-dropdown {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1vw, 1rem);
+        line-height: 1.5em;
+        text-decoration: none;
+        margin: 0;
+        color: var(--bodyTextColorWhite);
+        display: block;
+        position: relative;
+    }
+
+    #bcw-navigation .bcw-li-link:hover:before {
+        width: 100%;
+    }
+
+    #bcw-navigation .bcw-li-link.bcw-active:before {
+        width: 100%;
+    }
+
+    #bcw-navigation .bcw-li-link:before {
+        /* active state underline */
+        content: "";
+        width: 0%;
+        height: 2px;
+        background: var(--primaryLight);
+        opacity: 1;
+        position: absolute;
+        display: block;
+        bottom: 0rem;
+        left: 0;
+        transition: width 0.3s;
+    }
+
+    #bcw-navigation .bcw-button-solid {
+        font-size: 1rem;
+        /* 46px - 56px */
+        line-height: clamp(2.875em, 5.5vw, 3.5em);
+        text-decoration: none;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+        color: #fff;
+        min-width: 9.375rem;
+        padding: 0 1.5rem;
+        background-color: var(--primary);
+        border-radius: 0.25rem;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        /* prevents padding from adding to the width */
+        box-sizing: border-box;
+    }
+
+    #bcw-navigation .bcw-button-solid:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 0%;
+        background: #000;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 0.25rem;
+        transition: width 0.3s;
+    }
+
+    #bcw-navigation .bcw-button-solid:hover:before {
+        width: 100%;
+    }
+
+    #bcw-navigation .bcw-nav-button {
+        margin: 0 0 0 auto;
+    }
+}
+
+/*-- -------------------------- -->
+<---       Side By Side         -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    #RPsbs-248,
+    #RPsbsr-248 {
+        padding: 0 1em;
+        padding-bottom: 10%;
+        padding-top: 75px;
+        position: relative;
+        z-index: 1;
+    }
+
+    #RPsbs-248 .bcw-container,
+    #RPsbsr-248 .bcw-container {
+        width: 100%;
+        /* changes to 1280px on tablet */
+        max-width: 34.375rem;
+        padding: var(--sectionPadding);
+        padding-left: 0;
+        padding-right: 0;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 48px - 108px */
+        position: relative;
+        gap: 10%;
+    }
+
+    #RPsbs-248 .bcw-content,
+    #RPsbsr-248 .bcw-content {
+        /* set text align to left if content needs to be left aligned */
+        text-align: left;
+        width: 100%;
+        /* changes at tablet */
+        max-width: 27.125rem;
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: flex-start;
+    
+    }
+
+    #RPsbs-248 .bcw-title,
+    #RPsbsr-248 .bcw-title {
+        max-width: 20ch;
+        color: var(--bodyTextColor);
+        position: relative;
+       
+    }
+
+
+    #RPsbs-248 .bcw-text,
+    #RPsbsr-248 .bcw-text {
+        margin-bottom: 1rem;
+        opacity: 0.8;
+        color: var(--bodyTextColor);
+    }
+
+    #RPsbs-248 .bcw-title,
+    #RPsbsr-248 .bcw-title {
+        padding-bottom: 2%;
+        color: var(--bodyTextColor);
+        text-align: left;
+    }
+    
+
+
+    #RPsbsr-248 .bcw-topper {
+        color: var(--bodyTextColorWhite);
+    }
+
+    #RPsbs-248 .bcw-text:last-of-type,
+    #RPsbsr-248 .bcw-text:last-of-type {
+        margin-bottom: 2rem;
+    }
+
+    #RPsbs-248 .bcw-button-solid,
+    #RPsbsr-248 .bcw-button-solid {
+        font-size: 1rem;
+        /* 46px - 56px */
+        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+        text-decoration: none;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+        color: var(--bodyTextColorBlack);
+        min-width: 9.375rem;
+        padding: 0 1.5rem;
+        background-color: var(--primary);
+        border-radius: 0.25rem;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        /* prevents padding from adding to the width */
+        box-sizing: border-box;
+        
+    }
+
+
+    #RPsbs-248 .bcw-button-solid:hover,
+    #RPsbsr-248 .bcw-button-solid:hover {
+        opacity: .9;
+    }
+
+
+
+    #RPsbs-248 .bcw-picture,
+    #RPsbsr-248 .bcw-picture {
+        width: 100%;
+        max-width: 27.125rem;
+        margin: 0;
+        position: relative;
+        display: block;
+        /* width divided by height */
+        aspect-ratio: 1.09;
+        /* prevents border from adding to height and width */
+        box-sizing: border-box;
+    }
+
+    #RPsbs-248 .bcw-picture img,
+    #RPsbsr-248 .bcw-picture img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+@media only screen and ((min-width: 0rem) and (max-width: 48rem)) {
+    #RPsbs-248 .bcw-button-solid,
+    #RPsbsr-248 .bcw-button-solid {
+        align-self: center;
+    }
+
+    #RPsbs-248 .bcw-content,
+    #RPsbsr-248 .bcw-content {
+        padding-bottom: 10%;
+    }
+
+}
+
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+
+    #RPsbs-248,
+    #RPsbsr-248 {
+        padding: 0 1em;
+        padding-top: 75px;
+
+    }
+
+    #RPsbs-248 .bcw-container,
+    #RPsbsr-248 .bcw-container {
+        max-width: 80rem;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #RPsbs-248 .bcw-content,
+    #RPsbsr-248 .bcw-content {
+        max-width: 33.875rem;
+        margin: 0;
+        width: 45%;
+    }
+
+    #RPsbs-248 .bcw-picture,
+    #RPsbsr-248 .bcw-picture {
+        /* 344px - 434px */
+        width: clamp(21.5rem, 37.5vw, 27.125rem);
+        flex: none;
+    }
+
+
+}
