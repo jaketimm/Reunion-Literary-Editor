@@ -13,7 +13,7 @@
     --primary: #8bacab;
     /* These are highlight colors for text, box edges, ect. */
     /* Color Palette Tool: https://mycolor.space/?hex=%231A2397&sub=1 */
-    --primaryLight: #3279e4;
+    --primaryLight: #8bacab;
     --headerColor: #ffffff;
     --bodyTextColor: #ffffff;
     /* global text color */
@@ -646,8 +646,8 @@ html {
 }
 
 /*-- -------------------------- -->
-    <---     Desktop Navigation     -->
-    <--- -------------------------- -*/
+<---     Desktop Navigation     -->
+<--- -------------------------- -*/
 
 /* Small Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
@@ -852,11 +852,10 @@ html {
     #RPsbs-248 .bcw-title,
     #RPsbsr-248 .bcw-title {
         max-width: 20ch;
-        color: var(--bodyTextColor);
+        color: var(--primary);
         position: relative;
        
     }
-
 
     #RPsbs-248 .bcw-text,
     #RPsbsr-248 .bcw-text {
@@ -868,11 +867,10 @@ html {
     #RPsbs-248 .bcw-title,
     #RPsbsr-248 .bcw-title {
         padding-bottom: 2%;
-        color: var(--bodyTextColor);
+        
         text-align: left;
     }
     
-
 
     #RPsbsr-248 .bcw-topper {
         color: var(--bodyTextColorWhite);
@@ -981,5 +979,521 @@ html {
         flex: none;
     }
 
+
+}
+
+
+/*-- -------------------------- -->
+<---       Side By Side         -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+    #sbs-general,
+    #sbsr-general {
+      padding: 0 1em;
+      position: relative;
+      z-index: 1;
+      
+    }
+  
+  
+    #sbs-general .bcw-container,
+    #sbsr-general .bcw-container {
+      width: 100%;
+      /* changes to 1280px on tablet */
+      max-width: 34.375rem;
+      padding: var(--sectionPadding);
+      padding-left: 0;
+      padding-right: 0;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 108px */
+      gap: clamp(3rem, 8vw, 6.75rem);
+      position: relative;
+    }
+  
+    #sbs-general .bcw-content,
+    #sbsr-general .bcw-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: center;
+      width: 100%;
+      /* changes at tablet */
+      max-width: 27.125rem;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: center;
+    }
+  
+    #sbsr-general .bcw-content {
+      align-items: center;
+    }
+  
+  
+    #sbs-general .bcw-title,
+    #sbsr-general .bcw-title {
+      max-width: 25ch;
+      color: var(--bodyTextColor);
+    
+    }
+
+    #sbs-general .bcw-topper,
+    #sbsr-general .bcw-topper {
+        color: var(--primary);
+        text-align: left;
+    }
+
+    #sbs-general .bcw-text,
+    #sbsr-general .bcw-text {
+      margin-bottom: .5rem;
+  
+    }
+  
+    #sbs-general .bcw-text:last-of-type,
+    #sbsr-general .bcw-text:last-of-type {
+      margin-bottom: 2rem;
+    }
+  
+    #sbs-general .bcw-button-solid,
+    #sbsr-general .bcw-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 500;
+      text-align: center;
+      margin: 0;
+      color: var(--bodyTextColor);
+      border: 1px solid var(--bodyTextColor);
+      min-width: 9.375rem;
+      padding: 0 1.5rem;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+    }
+  
+    #sbs-general .bcw-picture-start,
+    #sbs-general .bcw-picture-planning
+     {
+      width: 100%;
+      max-width: 27.125rem;
+      margin: 0;
+      position: relative;
+      display: block;
+      /* width divided by height */
+      aspect-ratio: 1.09;
+      /* prevents border from adding to height and width */
+      box-sizing: border-box;
+    }
+
+    #sbs-general .bcw-picture-planning
+     {
+      /* width divided by height */
+      aspect-ratio: 1.85;
+   
+    }
+  
+    #sbs-general .bcw-picture-start img,
+    #sbs-general .bcw-picture-planning img
+     {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  
+  
+    #sbs-general .bcw-background {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      /* makes it act like a background image */
+      object-fit: cover;
+      opacity: .2;
+    }
+  }
+  
+  /* Tablet - 768px */
+  @media only screen and (min-width: 900px) {
+  
+    #sbs-general .bcw-container,
+    #sbsr-general .bcw-container {
+      max-width: 80rem;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  
+  
+    #sbs-general .bcw-picture,
+    #sbsr-general .bcw-picture {
+      /* 344px - 434px */
+      width: clamp(21.5rem, 37.5vw, 27.125rem);
+      flex: none;
+    }
+  
+  
+    #sbsr-general .bcw-picture {
+      /* 344px - 434px */
+      width: 50%;
+      flex: none;
+    }
+  
+    #sbs-general .bcw-content,
+    #sbsr-general .bcw-content {
+      max-width: 33.875rem;
+      margin: 0;
+      width: 45%;
+      text-align: left;
+      align-items: flex-start;
+    }
+  }
+
+
+
+/* spacers */
+/* Mobile - up to 360px */
+@media only screen and (min-width: 0rem) {
+
+    #About,
+    #Overview,
+    #Our_Difference,
+    #FAQ {
+  
+      padding: 0;
+      position: relative;
+      z-index: 1;
+    }
+  
+    #About .spacer-1,
+    #Overview .spacer-2,
+    #Our_Difference .spacer-3,
+    #FAQ .spacer-4 {
+      height: 50px;
+      /* Adjust this value to increase/decrease space */
+    }
+  
+  
+  }
+  
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+  
+  
+    #About .spacer-1,
+    #Overview .spacer-2,
+    #Our_Difference .spacer-3
+    {
+      height: 30px;
+    }
+  
+    #FAQ .spacer-4 {
+      height: 1px;
+    }
+  
+  }
+
+
+
+/*-- -------------------------- -->
+<--- About Comapany Side By Side -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+
+
+    #RPsbs-company-history {
+        padding: 0 1em;
+        padding-top: 5%;
+        padding-bottom: 3%;
+        position: relative;
+        z-index: 1;
+        background-color: var(--secondary);
+    }
+
+    #RPsbs-company-history .bcw-container {
+        width: 100%;
+        /* changes to 1280px on tablet */
+        max-width: 34.375rem;
+        padding-top: var(--sectionPadding);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 48px - 108px */
+        gap: clamp(3rem, 8vw, 6.75rem);
+        position: relative;
+    }
+
+    #RPsbs-company-history .bcw-content {
+        text-align: left;
+        width: 100%;
+        max-width: 27.125rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #RPsbs-company-history .bcw-title {
+        display: flex;
+        align-items: center;
+        position: relative;
+        color: var(--primary);
+        padding-left: 20px;
+        /* Space on the right for the lines */
+        margin-bottom: 5%;
+    }
+
+    /* Standard Title */
+    #RPsbs-company-history .bcw-title-top {
+        font-size: var(--headerFontSize);
+        font-weight: 900;
+        line-height: 1.2em;
+        text-align: center;
+        /* Center the text horizontally */
+        max-width: 50vw;
+        margin: 0 auto 1rem auto;
+        /* Center the element itself */
+        color: var(--primary);
+    }
+
+
+    #RPsbs-company-history .bcw-title::before {
+        content: '';
+        position: absolute;
+        background: var(--primary);
+        /* Line color */
+        width: 2px;
+        /* Width of the vertical line */
+        height: 100%;
+        left: 0;
+        /* Adjust this to move the line closer or further from the text */
+    }
+
+    #RPsbs-company-history .bcw-title h1 {
+        margin: 0;
+    }
+
+    #RPsbs-company-history .bcw-title-text {
+        margin-left: 20px;
+        /* Space between the title and the text */
+        display: flex;
+        flex-direction: column;
+    }
+
+    #RPsbs-company-history .bcw-title-text p {
+        margin: 0;
+        font-size: 0.4em;
+        /* Adjust text size as needed */
+        line-height: 1.2;
+        color: var(--bodyTextColor)
+    }
+
+    #RPsbs-company-history .bcw-text-wrapper {
+        display: flex;
+        align-items: flex-start;
+        /* Align items to the top */
+        margin-bottom: 1rem;
+        /* Space between this block and the next content */
+        width: 100%;
+        /* Ensure the wrapper takes the full width */
+    }
+
+
+    #RPsbs-company-history .bcw-text-content {
+        margin-left: 0;
+        /* Ensure there's space for the icon */
+        display: flex;
+        flex-direction: column;
+        /* Stack topper and text vertically */
+        align-items: flex-start;
+        /* Align topper and text to the left */
+    }
+
+    #RPsbs-company-history .bcw-topper {
+        opacity: 0.8;
+        color: var(--bodyTextColor);
+        border-bottom: 2px solid var(--primary);
+        /* Adjust the width, style, and color as needed */
+    }
+
+    #RPsbs-company-history .bcw-text {
+        margin-top: 0.5rem;
+        /* Space between topper and text */
+        opacity: 0.8;
+    }
+
+    #RPsbs-company-history .bcw-text:last-of-type {
+        margin-bottom: 2rem;
+    }
+
+
+    #RPsbs-company-history .bcw-button-solid {
+        font-size: 1rem;
+        /* 46px - 56px */
+        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+        text-decoration: none;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+        color: #fff;
+        min-width: 9.375rem;
+        padding: 0 1.5rem;
+        background-color: var(--primary);
+        border-radius: 0.25rem;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        /* prevents padding from adding to the width */
+        box-sizing: border-box;
+    }
+
+    #RPsbs-company-history .bcw-button-solid:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 0%;
+        background: #000;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 0.25rem;
+        transition: width 0.3s;
+    }
+
+    #RPsbsr-248 .bcw-button-solid:hover:before {
+        width: 100%;
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+
+
+    #RPsbs-company-history .bcw-container {
+        max-width: 80rem;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #RPsbs-company-history .bcw-content {
+        max-width: 33.875rem;
+        margin: 0;
+        width: 45%;
+    }
+}
+
+
+/*-- -------------------------- -->
+<---      Top Banner/Text       -->
+<---      Page Description      -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0rem) {
+    #bcw-content-831,
+    #bcw-content-831-2 {
+    
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: center;
+        margin-top: 5%;
+    }
+
+    #bcw-content-831 .bcw-topper,
+    #bcw-content-831-2 .bcw-topper {
+        font-size: var(--topperFontSize);
+        line-height: 1.2em;
+        text-transform: uppercase;
+        text-align: inherit;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        color: var(--bodyTextColor);
+        margin-bottom: 0.25rem;
+        display: block;
+
+    }
+
+    /* Standard Title */
+    #bcw-content-831 .bcw-title,
+    #bcw-content-831-2 .bcw-title {
+        font-size: var(--headerFontSize);
+        font-weight: 900;
+        line-height: 1.2em;
+        text-align: inherit;
+        max-width: 50vw;
+        margin: 0 0 1rem 0;
+        color: var(--primary);
+        position: relative;
+        /* Colored Line Underneath */
+        padding-bottom: 1%;
+        border-bottom: 2px solid var(--primary);
+    }
+
+    /* Title with decorative lines */
+    #bcw-content-831 .bcw-title-decorative,
+    #bcw-content-831-2 .bcw-title-decorative {
+        font-size: var(--headerFontSize);
+        font-weight: 900;
+        line-height: 1.2em;
+        margin: 0;
+        color: var(--primary);
+        position: relative;
+        padding: 0 60px;
+        /* Padding to make space for the lines */
+        display: inline-block;
+        /* Keeps the header from stretching full-width */
+    }
+
+    /* Second line */
+    #bcw-content-831 .bcw-title-decorative-second-line,
+    #bcw-content-831-2 .bcw-title-decorative-second-line {
+        color: var(--bodyTextColor);
+        font-size: var(--headerFontSize);
+        font-weight: 900;
+        line-height: 1.2em;
+        margin-top: 0.5rem;
+        /* Space between title and second line */
+        margin-bottom: 2%;
+        /* Adjust as needed */
+        text-align: center;
+    }
+
+    #bcw-content-831 .bcw-text,
+    #bcw-content-831-2 .bcw-text {
+        font-size: var(--bodyFontSize);
+        line-height: 1.5em;
+        text-align: left;
+        width: 90%;
+        margin: 0;
+        color: var(--bodyTextColor);
+        margin-bottom: 3%;
+    }
+
+
+    /* Mobile Phones */
+    @media only screen and (max-width: 600px) {
+        #bcw-content-831,
+         #bcw-content-831-2 {
+            margin-bottom: 3%;
+        }
+    }
 
 }
