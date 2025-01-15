@@ -1024,7 +1024,7 @@ html {
       text-align: center;
       width: 100%;
       /* changes at tablet */
-      max-width: 27.125rem;
+      max-width: 35rem;
       display: flex;
       flex-direction: column;
       /* centers content horizontally, set to flex-start to left align */
@@ -1078,28 +1078,84 @@ html {
     }
   
     #sbs-general .bcw-picture-start,
-    #sbs-general .bcw-picture-planning
+    #sbs-general .bcw-picture-planning,
+    #sbs-general .bcw-picture-overview,
+    #sbs-general .bcw-picture-doc_editor,
+    #sbs-general .bcw-picture-noun_editor,
+    #sbs-general .bcw-picture-scratchpads,
+    #sbs-general .bcw-picture-scene,
+    #sbs-general .bcw-picture-doc_history,
+    #sbs-general .bcw-picture-search,
+    #sbs-general .bcw-picture-stats,
+    #sbs-general .bcw-picture-transcript,
+    #sbs-general .bcw-picture-delete_log
      {
       width: 100%;
-      max-width: 27.125rem;
+      max-width: 35rem;
       margin: 0;
       position: relative;
       display: block;
       /* width divided by height */
-      aspect-ratio: 1.09;
+      aspect-ratio: 1.39;
       /* prevents border from adding to height and width */
       box-sizing: border-box;
     }
 
-    #sbs-general .bcw-picture-planning
-     {
-      /* width divided by height */
+    #sbs-general .bcw-picture-planning,
+    #sbs-general .bcw-picture-overview,
+    #sbs-general .bcw-picture-doc_editor,
+    #sbs-general .bcw-picture-noun_editor
+    {
       aspect-ratio: 1.85;
-   
     }
-  
+
+    #sbs-general .bcw-picture-doc_history
+    {
+        aspect-ratio: 2.9;
+    }
+
+    #sbs-general .bcw-picture-scene
+    {
+       aspect-ratio: 1.79;
+    }
+
+    #sbs-general .bcw-picture-scratchpads
+    {
+        aspect-ratio: 2.1;
+    }
+
+    #sbs-general .bcw-picture-search
+    {
+        aspect-ratio: 1.42;
+    }
+
+    #sbs-general .bcw-picture-stats
+    {
+        aspect-ratio: 1.32;
+    }
+
+    #sbs-general .bcw-picture-transcript
+    {
+        aspect-ratio: 1.21;
+    }
+
+    #sbs-general .bcw-picture-delete_log
+    {
+        aspect-ratio: 7.77;
+    }
+    
     #sbs-general .bcw-picture-start img,
-    #sbs-general .bcw-picture-planning img
+    #sbs-general .bcw-picture-planning img,
+    #sbs-general .bcw-picture-overview img,
+    #sbs-general .bcw-picture-doc_editor img,
+    #sbs-general .bcw-picture-noun_editor img,
+    #sbs-general .bcw-picture-scratchpads img,
+    #sbs-general .bcw-picture-scene img,
+    #sbs-general .bcw-picture-doc_history img,
+    #sbs-general .bcw-picture-search img,
+    #sbs-general .bcw-picture-stats img,
+    #sbs-general .bcw-picture-transcript img,
+    #sbs-general .bcw-picture-delete_log img
      {
       position: absolute;
       top: 0;
@@ -1125,7 +1181,7 @@ html {
   }
   
   /* Tablet - 768px */
-  @media only screen and (min-width: 900px) {
+  @media only screen and (min-width: 1050px) {
   
     #sbs-general .bcw-container,
     #sbsr-general .bcw-container {
@@ -1139,7 +1195,7 @@ html {
     #sbs-general .bcw-picture,
     #sbsr-general .bcw-picture {
       /* 344px - 434px */
-      width: clamp(21.5rem, 37.5vw, 27.125rem);
+      width: clamp(25.8rem, 45vw, 32,55rem);
       flex: none;
     }
   
@@ -1154,7 +1210,7 @@ html {
     #sbsr-general .bcw-content {
       max-width: 33.875rem;
       margin: 0;
-      width: 45%;
+      width: 40%;
 
     }
   }
