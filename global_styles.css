@@ -1293,7 +1293,7 @@ html {
     }
 
     #RPsbs-company-history .bcw-content {
-        text-align: justify;
+        text-align: center;
         width: 100%;
         max-width: 27.125rem;
         display: flex;
@@ -1450,6 +1450,7 @@ html {
         max-width: 33.875rem;
         margin: 0;
         width: 60%;
+
     }
 }
 
