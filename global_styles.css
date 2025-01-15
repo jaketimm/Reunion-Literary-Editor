@@ -21,7 +21,7 @@
     --navigationBarColor: #000000;
     --linkcolor: #262fac;
     /* 13px - 16px */
-    --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+    --topperFontSize: clamp(1.1375rem, 2.24vw, 1.4rem);
     /* 31px - 49px */
     --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
     --bodyFontSize: 1rem;
@@ -812,7 +812,7 @@ html {
     #RPsbs-248,
     #RPsbsr-248 {
         padding: 0 1em;
-        padding-bottom: 10%;
+        padding-bottom: 0;
         padding-top: 75px;
         position: relative;
         z-index: 1;
@@ -826,6 +826,7 @@ html {
         padding: var(--sectionPadding);
         padding-left: 0;
         padding-right: 0;
+        padding-bottom: 0;
         margin: auto;
         display: flex;
         flex-direction: column;
@@ -1007,6 +1008,7 @@ html {
       padding: var(--sectionPadding);
       padding-left: 0;
       padding-right: 0;
+      padding-bottom: 5%;
       margin: auto;
       display: flex;
       flex-direction: column;
@@ -1026,11 +1028,8 @@ html {
       display: flex;
       flex-direction: column;
       /* centers content horizontally, set to flex-start to left align */
-      align-items: center;
-    }
-  
-    #sbsr-general .bcw-content {
-      align-items: center;
+      align-items: flex-start;
+      text-align: left;
     }
   
   
@@ -1156,8 +1155,7 @@ html {
       max-width: 33.875rem;
       margin: 0;
       width: 45%;
-      text-align: left;
-      align-items: flex-start;
+
     }
   }
 
@@ -1208,7 +1206,7 @@ html {
 
 
 /*-- -------------------------- -->
-<--- About Comapany Side By Side -->
+<--- About Company Side By Side -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
@@ -1254,7 +1252,7 @@ html {
         color: var(--primary);
         padding-left: 20px;
         /* Space on the right for the lines */
-        margin-bottom: 5%;
+        margin-bottom: 10%;
     }
 
     /* Standard Title */
@@ -1264,8 +1262,9 @@ html {
         line-height: 1.2em;
         text-align: center;
         /* Center the text horizontally */
-        max-width: 50vw;
+        max-width: 750px;
         margin: 0 auto 1rem auto;
+        margin-bottom: 5%;
         /* Center the element itself */
         color: var(--primary);
     }
@@ -1394,7 +1393,7 @@ html {
     #RPsbs-company-history .bcw-content {
         max-width: 33.875rem;
         margin: 0;
-        width: 45%;
+        width: 60%;
     }
 }
 
