@@ -999,7 +999,6 @@ html {
       
     }
   
-  
     #sbs-general .bcw-container,
     #sbsr-general .bcw-container {
       width: 100%;
@@ -1017,9 +1016,21 @@ html {
       gap: clamp(3rem, 8vw, 6.75rem);
       position: relative;
     }
+
+    #sbs-general .bcw-title_container
+    {
+      width: 100%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      padding-top: 5%;
+    }
   
     #sbs-general .bcw-content,
-    #sbsr-general .bcw-content {
+    #sbsr-general .bcw-content,
+    #sbs-general .bcw-title_content {
       /* set text align to left if content needs to be left aligned */
       text-align: center;
       width: 100%;
@@ -1031,13 +1042,17 @@ html {
       align-items: flex-start;
       text-align: left;
     }
+
+    #sbs-general .bcw-title_content
+    {
+        align-items: center;
+    }
   
   
     #sbs-general .bcw-title,
     #sbsr-general .bcw-title {
       max-width: 25ch;
-      color: var(--bodyTextColor);
-    
+      color: var(--primary);
     }
 
     #sbs-general .bcw-topper,
@@ -1293,7 +1308,7 @@ html {
     }
 
     #RPsbs-company-history .bcw-content {
-        text-align: center;
+        text-align: left;
         width: 100%;
         max-width: 27.125rem;
         display: flex;
@@ -1308,7 +1323,7 @@ html {
         color: var(--primary);
         padding-left: 20px;
         /* Space on the right for the lines */
-        margin-bottom: 10%;
+        margin-bottom: 5%;
     }
 
     /* Standard Title */
@@ -1320,7 +1335,6 @@ html {
         /* Center the text horizontally */
         max-width: 750px;
         margin: 0 auto 1rem auto;
-        margin-bottom: 5%;
         /* Center the element itself */
         color: var(--primary);
     }
@@ -1450,6 +1464,7 @@ html {
         max-width: 33.875rem;
         margin: 0;
         width: 60%;
+        text-align: center;
 
     }
 }
