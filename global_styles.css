@@ -10,15 +10,15 @@
 
 :root {
     /* Add these styles to your global stylesheet, which is used across all site pages. You only need to do this once. All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
-    --primary: #8bacab;
+    --primary: #363552;
     /* These are highlight colors for text, box edges, ect. */
     /* Color Palette Tool: https://mycolor.space/?hex=%231A2397&sub=1 */
-    --primaryLight: #8bacab;
+    --primaryLight: #7270b1;
     --headerColor: #ffffff;
-    --bodyTextColor: #ffffff;
+    --bodyTextColor: #000000;
     /* global text color */
-    --bodyTextColorBlack: #000000;
-    --navigationBarColor: #000000;
+    --bodyTextColorWhite: #ffffff;
+    --navigationBarColor: #403f61;
     --linkcolor: #262fac;
     /* 13px - 16px */
     --topperFontSize: clamp(1.1375rem, 2.24vw, 1.4rem);
@@ -92,7 +92,7 @@ html {
 }
 
 .home-page {
-    background-color: #1c1c1c;
+    background: linear-gradient(to right, #939697, #ecf0f1);
 }
 
 /*-- -------------------------- -->
@@ -389,7 +389,7 @@ html {
         line-height: 1.2em;
         text-decoration: none;
         margin: 0;
-        color: var(--bodyTextColorBlack);
+        color: var(--bodyTextColor);
         display: inline-block;
         position: relative;
     }
@@ -721,7 +721,7 @@ html {
         line-height: 1.5em;
         text-decoration: none;
         margin: 0;
-        color: var(--bodyTextColor);
+        color: var(--bodyTextColorWhite);
         display: block;
         position: relative;
     }
@@ -891,7 +891,7 @@ html {
         font-weight: 700;
         text-align: center;
         margin: 0;
-        color: var(--bodyTextColorBlack);
+        color: var(--bodyTextColorWhite);
         min-width: 9.375rem;
         padding: 0 1.5rem;
         background-color: var(--primary);
@@ -1114,6 +1114,7 @@ html {
       aspect-ratio: 1.39;
       /* prevents border from adding to height and width */
       box-sizing: border-box;
+      
     }
 
     #sbs-general .bcw-picture-planning,
