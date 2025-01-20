@@ -91,6 +91,10 @@ html {
     color: var(--primary);
 }
 
+a {
+    color: var(--primary)
+}
+
 .home-page {
     background: linear-gradient(to right, #939697, #ecf0f1);
 }
@@ -429,8 +433,8 @@ html {
 }
 
 /*-- -------------------------- -->
-    <---     Navigation Dropdown    -->
-    <--- -------------------------- -*/
+<---     Navigation Dropdown    -->
+<--- -------------------------- -*/
 
 /* Mobile - 1023px */
 @media only screen and (max-width: 63.9375rem) {
@@ -836,6 +840,12 @@ html {
         gap: 10%;
     }
 
+    #RPsbsr-248 .bcw-container
+    {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
     #RPsbs-248 .bcw-content,
     #RPsbsr-248 .bcw-content {
         /* set text align to left if content needs to be left aligned */
@@ -847,7 +857,6 @@ html {
         flex-direction: column;
         /* centers content horizontally, set to flex-start to left align */
         align-items: flex-start;
-    
     }
 
     #RPsbs-248 .bcw-title,
@@ -855,7 +864,12 @@ html {
         max-width: 20ch;
         color: var(--primary);
         position: relative;
-       
+    }
+
+    #RPsbsr-248 .bcw-title
+
+    {
+        align-self: center;
     }
 
     #RPsbs-248 .bcw-text,
@@ -917,10 +931,17 @@ html {
         position: relative;
         display: block;
         /* width divided by height */
-        aspect-ratio: 2.78;
+        aspect-ratio: 1.84;
         /* prevents border from adding to height and width */
         box-sizing: border-box;
         margin-bottom: 6%;
+    }
+
+    #RPsbsr-248 .bcw-picture
+    {
+       margin-top: 5%;
+       margin-bottom: 8%;
+       aspect-ratio: 1.32;
     }
 
     #RPsbs-248 .bcw-picture img,
@@ -940,8 +961,7 @@ html {
         align-self: center;
     }
 
-    #RPsbs-248 .bcw-content,
-    #RPsbsr-248 .bcw-content {
+    #RPsbs-248 .bcw-content {
         padding-bottom: 10%;
     }
 
@@ -966,11 +986,18 @@ html {
         align-items: center;
     }
 
+
     #RPsbs-248 .bcw-content,
     #RPsbsr-248 .bcw-content {
         max-width: 33.875rem;
         margin: 0;
         width: 45%;
+    }
+
+    #RPsbsr-248 .bcw-content {
+
+        width: 100%;
+        padding-bottom: 0;
     }
 
     #RPsbs-248 .bcw-picture,
@@ -979,7 +1006,6 @@ html {
         width: clamp(21.5rem, 37.5vw, 27.125rem);
         flex: none;
     }
-
 
 }
 
