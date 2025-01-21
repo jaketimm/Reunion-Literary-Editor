@@ -936,11 +936,6 @@ html {
         margin-bottom: 6%;
     }
 
-    #RPsbs-248 .bcw-picture
-    {
-        margin-bottom: 0;
-    }
-
     #RPsbsr-248 .bcw-picture
     {
        margin-top: 5%;
@@ -1010,6 +1005,12 @@ html {
         width: clamp(21.5rem, 37.5vw, 27.125rem);
         flex: none;
     }
+
+    #RPsbs-248 .bcw-picture
+    {
+        margin-bottom: 0;
+    }
+
 
 }
 
