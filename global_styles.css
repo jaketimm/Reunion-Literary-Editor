@@ -55,7 +55,6 @@ html {
 .bcw-topper {
     font-size: var(--topperFontSize);
     line-height: 1.2em;
-    text-transform: uppercase;
     text-align: inherit;
     letter-spacing: .1em;
     font-weight: 700;
@@ -937,6 +936,11 @@ html {
         margin-bottom: 6%;
     }
 
+    #RPsbs-248 .bcw-picture
+    {
+        margin-bottom: 0;
+    }
+
     #RPsbsr-248 .bcw-picture
     {
        margin-top: 5%;
@@ -1140,7 +1144,13 @@ html {
       aspect-ratio: 1.39;
       /* prevents border from adding to height and width */
       box-sizing: border-box;
+      border: solid 1px var(--bodyTextColor);
       
+    }
+
+    #sbs-general .bcw-picture-start
+    {
+        aspect-ratio: 2.05;
     }
 
     #sbs-general .bcw-picture-planning,
@@ -1148,12 +1158,12 @@ html {
     #sbs-general .bcw-picture-doc_editor,
     #sbs-general .bcw-picture-noun_editor
     {
-      aspect-ratio: 1.85;
+      aspect-ratio: 1.84;
     }
 
     #sbs-general .bcw-picture-doc_history
     {
-        aspect-ratio: 2.9;
+        aspect-ratio: 2.93;
     }
 
     #sbs-general .bcw-picture-scene
@@ -1163,27 +1173,27 @@ html {
 
     #sbs-general .bcw-picture-scratchpads
     {
-        aspect-ratio: 2.1;
+        aspect-ratio: 2.12;
     }
 
     #sbs-general .bcw-picture-search
     {
-        aspect-ratio: 1.42;
+        aspect-ratio: 1.43;
     }
 
     #sbs-general .bcw-picture-stats
     {
-        aspect-ratio: 1.32;
+        aspect-ratio: 1.33;
     }
 
     #sbs-general .bcw-picture-transcript
     {
-        aspect-ratio: 1.21;
+        aspect-ratio: .96;
     }
 
     #sbs-general .bcw-picture-delete_log
     {
-        aspect-ratio: 7.77;
+        aspect-ratio: 8.2;
     }
     
     #sbs-general .bcw-picture-start img,
@@ -1300,201 +1310,6 @@ html {
     }
   
   }
-
-
-
-/*-- -------------------------- -->
-<--- About Company Side By Side -->
-<--- -------------------------- -*/
-
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-
-
-    #RPsbs-company-history {
-        padding: 0 1em;
-        padding-top: 5%;
-        padding-bottom: 3%;
-        position: relative;
-        z-index: 1;
-        background-color: var(--secondary);
-    }
-
-    #RPsbs-company-history .bcw-container {
-        width: 100%;
-        /* changes to 1280px on tablet */
-        max-width: 34.375rem;
-        padding-top: var(--sectionPadding);
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* 48px - 108px */
-        gap: clamp(3rem, 8vw, 6.75rem);
-        position: relative;
-    }
-
-    #RPsbs-company-history .bcw-content {
-        text-align: left;
-        width: 100%;
-        max-width: 27.125rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    #RPsbs-company-history .bcw-title {
-        display: flex;
-        align-items: center;
-        position: relative;
-        color: var(--primary);
-        padding-left: 20px;
-        /* Space on the right for the lines */
-        margin-bottom: 5%;
-    }
-
-    /* Standard Title */
-    #RPsbs-company-history .bcw-title-top {
-        font-size: var(--headerFontSize);
-        font-weight: 900;
-        line-height: 1.2em;
-        text-align: center;
-        /* Center the text horizontally */
-        max-width: 750px;
-        margin: 0 auto 1rem auto;
-        /* Center the element itself */
-        color: var(--primary);
-    }
-
-
-    #RPsbs-company-history .bcw-title::before {
-        content: '';
-        position: absolute;
-        background: var(--primary);
-        /* Line color */
-        width: 2px;
-        /* Width of the vertical line */
-        height: 100%;
-        left: 0;
-        /* Adjust this to move the line closer or further from the text */
-    }
-
-    #RPsbs-company-history .bcw-title h1 {
-        margin: 0;
-    }
-
-    #RPsbs-company-history .bcw-title-text {
-        margin-left: 20px;
-        /* Space between the title and the text */
-        display: flex;
-        flex-direction: column;
-    }
-
-    #RPsbs-company-history .bcw-title-text p {
-        margin: 0;
-        font-size: 0.4em;
-        /* Adjust text size as needed */
-        line-height: 1.2;
-        color: var(--bodyTextColor)
-    }
-
-    #RPsbs-company-history .bcw-text-wrapper {
-        display: flex;
-        align-items: flex-start;
-        /* Align items to the top */
-        margin-bottom: 1rem;
-        /* Space between this block and the next content */
-        width: 100%;
-        /* Ensure the wrapper takes the full width */
-    }
-
-
-    #RPsbs-company-history .bcw-text-content {
-        margin-left: 0;
-        /* Ensure there's space for the icon */
-        display: flex;
-        flex-direction: column;
-        /* Stack topper and text vertically */
-        align-items: flex-start;
-        /* Align topper and text to the left */
-    }
-
-    #RPsbs-company-history .bcw-topper {
-        opacity: 0.8;
-        color: var(--bodyTextColor);
-        border-bottom: 2px solid var(--primary);
-        /* Adjust the width, style, and color as needed */
-    }
-
-    #RPsbs-company-history .bcw-text {
-        margin-top: 0.5rem;
-        /* Space between topper and text */
-        opacity: 0.8;
-    }
-
-    #RPsbs-company-history .bcw-text:last-of-type {
-        margin-bottom: 2rem;
-    }
-
-
-    #RPsbs-company-history .bcw-button-solid {
-        font-size: 1rem;
-        /* 46px - 56px */
-        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
-        text-decoration: none;
-        font-weight: 700;
-        text-align: center;
-        margin: 0;
-        color: #fff;
-        min-width: 9.375rem;
-        padding: 0 1.5rem;
-        background-color: var(--primary);
-        border-radius: 0.25rem;
-        display: inline-block;
-        position: relative;
-        z-index: 1;
-        /* prevents padding from adding to the width */
-        box-sizing: border-box;
-    }
-
-    #RPsbs-company-history .bcw-button-solid:before {
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 0%;
-        background: #000;
-        opacity: 1;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        border-radius: 0.25rem;
-        transition: width 0.3s;
-    }
-
-    #RPsbsr-248 .bcw-button-solid:hover:before {
-        width: 100%;
-    }
-}
-
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-
-
-    #RPsbs-company-history .bcw-container {
-        max-width: 80rem;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #RPsbs-company-history .bcw-content {
-        max-width: 33.875rem;
-        margin: 0;
-        width: 60%;
-        text-align: center;
-
-    }
-}
 
 
 /*-- -------------------------- -->
