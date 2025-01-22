@@ -1,11 +1,12 @@
 @font-face {
-    font-family: 'Poppins';
-    src: url('fonts/Poppins-Regular.ttf') format('truetype'),
-        url('fonts/Poppins-Bold.ttf') format('truetype');
+    font-family: 'Gentium';
+    src: url('fonts/GentiumBookPlus-Regular.ttf') format('truetype');
     font-weight: normal;
     /* Adjust based on the specific font weight */
     font-style: normal;
 }
+
+
 
 
 :root {
@@ -31,7 +32,7 @@
 
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Gentium', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
